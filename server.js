@@ -4,12 +4,6 @@ const dotenv = require('dotenv');
 const { Configuration, OpenAIApi }  = require('openai')
 
 
-const configuration = new Configuration({
-    apiKey: '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',
-  });
-
-  const openai = new OpenAIApi(configuration);
-
 
 
 
@@ -23,6 +17,7 @@ app.use(express.json())
 
 app.use(cors())
 app.options('*' , cors())
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Credentials", true);
@@ -30,6 +25,16 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
     next();
 });
+
+
+const configuration = new Configuration({
+  apiKey: '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',
+});
+
+const openai = new OpenAIApi(configuration);
+
+
+
 
 
 
