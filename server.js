@@ -5,7 +5,7 @@ const { Configuration, OpenAIApi }  = require('openai')
 
 
 const configuration = new Configuration({
-    apiKey: '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',
+    apiKey: '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',
   });
 
   const openai = new OpenAIApi(configuration);
@@ -14,7 +14,7 @@ const configuration = new Configuration({
 
 
 
-dotenv.config({path : './env'});
+dotenv.config({path : './config.env'});
 
 const app = express();
 app.use(express.json())
@@ -60,9 +60,14 @@ app.post('/checkWord' , async (req , res) => {
 })
 
 
+
+
+
 // here is grammer correction api == complete
 app.post('/grammerCorrection' , async (req , res) => {
   const {inputText} = req.body
+
+  console.log(inputText , 'inputText');
     const completion = await openai.createCompletion({
         model: "text-davinci-002",
         prompt: `Correct this to standard English:\n\n${inputText}`,
