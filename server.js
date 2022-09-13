@@ -14,7 +14,7 @@ const configuration = new Configuration({
 
 
 
-dotenv.config({path : './config.env'});
+dotenv.config({path : './env'});
 
 const app = express();
 app.use(express.json())
